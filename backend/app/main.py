@@ -7,7 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .config import get_settings
 from .database import init_db
-from .routers import posts
+from .routers import posts, agent
 
 settings = get_settings()
 
@@ -37,6 +37,7 @@ app.add_middleware(
 
 # Подключаем роутеры
 app.include_router(posts.router)
+app.include_router(agent.router)
 
 
 @app.get("/")
